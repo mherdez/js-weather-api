@@ -60,21 +60,21 @@ export const card = () => {
 
       // colorColor
       const [r,g,b] = colorThief.getColor($img);
-      $card.style.backgroundColor = `rgba(${r},${g},${b},0.3)`
+      $card.style.backgroundColor = `rgba(${r},${g},${b},0.2)`
 
 
       // colorPalette
-      // const colorPalette = colorThief.getPalette($img)
+      const colorPalette = colorThief.getPalette($img)
 
-      // colorPalette.forEach( ([r,g,b]) => {
-      //   const $box = $('div')
-      //   $box.classList.add('box')
-      //   $box.style.width = '50px'
-      //   $box.style.height = '50px'
-      //   $box.style.border = '1px solid black'
-      //   $box.style.backgroundColor = `rgb(${r},${g},${b})`
-      //   $card.append($box)
-      // })
+      colorPalette.forEach( ([r,g,b]) => {
+        const $box = $('div')
+        $box.classList.add('box')
+        $box.style.width = '50px'
+        $box.style.height = '50px'
+        $box.style.border = '1px solid black'
+        $box.style.backgroundColor = `rgb(${r},${g},${b})`
+        // $card.append($box)
+      })
     });
 
   })
