@@ -31,6 +31,9 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 50px;
 }
 
 .card {
@@ -58,7 +61,8 @@ body {
 }
 .card-info {
   text-align: right;
-  flex: 2;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .card-body {
   display: flex;
@@ -67,7 +71,6 @@ body {
   flex-direction: column;
   padding: 30px 35px;
 }
-
 
 .card-body-prop {
   display: flex;
@@ -95,11 +98,16 @@ h1 span {
   font-size: 50px;
   top: -15%;
   font-weight: lighter;
+  color: red;
 }
 h3, h2 {
   font-weight: normal;
   position: relative;
   right: 0;
+}
+h3 {
+  text-overflow: ellipsis;
+  font-size: 18px;
 }
 .card-body-stats {
   font-size: 21px;

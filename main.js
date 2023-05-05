@@ -1,6 +1,4 @@
 import './style.css';
-import { card } from './src/app';
+import { CardList } from './src/CardList';
 
-const $app = document.querySelector('#app');
-// $app.append(card())
-card()
+CardList()
