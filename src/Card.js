@@ -41,6 +41,7 @@ const createCard = (data) => {
   const $h1 = $('h1');
   $h1.textContent = `${temp_c}`;
 
+  //TODO: revisar la visibilidad del span º
   const $span = $('span');
   $span.textContent = 'º';
 
