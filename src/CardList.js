@@ -1,17 +1,15 @@
 import { Card } from './Card';
 
-const cities = ['campeche', 'toronto', 'madrid', 'pekin', 'chile', 'rio de janeiro']
+const cities = ['campeche', 'tampico', 'chetumal', 'tuxtla gutierrez', 'la paz baja california', 'oaxaca']
 
 const $app = document.querySelector('#app');
 
-// CardList().then( child => $app.append(child))
-
 export const CardList = async () => {
 
-  // const cardInfo = await Card('campeche')
-  // return cardInfo
-
-  cities.map( city => Card(city).then( city => $app.append(city)))
+  return cities.map( city => Card(city).then( city => {
+    if(!city) return
+    $app.append(city)
+  }))
 
 
 }

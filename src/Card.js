@@ -31,6 +31,10 @@ const createCard = (data) => {
   $img.crossOrigin = `Anonymous`;
   $img.classList.add('card-icon');
 
+  // background-color card-header
+  const [r,g,b] = colorThief.getColor($img);
+  $cardHeader.style.backgroundColor = `rgba(${r},${g},${b},0.4)`;
+
   // card-info
   const $cardInfo = $('div');
   $cardInfo.classList.add('card-info');
@@ -41,7 +45,7 @@ const createCard = (data) => {
   const $h1 = $('h1');
   $h1.textContent = `${temp_c}`;
 
-  //TODO: revisar la visibilidad del span º
+
   const $span = $('span');
   $span.textContent = 'º';
 
@@ -84,6 +88,9 @@ const createCard = (data) => {
   const $pCardBodyPropDataPressure = $('p');
   $pCardBodyPropDataPressure.textContent = `30.33 in`;
   $pCardBodyPropDataPressure.classList.add('card-body-data');
+
+  // color text card-info
+  $cardInfo.style.color = `rgb(${r-90},${g-90},${b-90})`;
 
 
   // APPEND CHILDS
@@ -139,28 +146,3 @@ export const Card = async ( city ) => {
   const data = await weatherApi(city);
   return data
 };
-
-{/* <div class="card">
-<div class="card-header">
-  <img class='card-icon' src="https://cdn.weatherapi.com/weather/64x64/day/116.png" alt="">
-  <div class='card-info'>
-    <h2>Sunny</h2>
-    <h1>19<span>º</span></h1>
-    <h3>Athens, Greece</h3>
-  </div>
-</div>
-<div class="card-body">
-  <div class="card-body-prop">
-    <p class='card-body-stats'>Wind</p>
-    <p class='card-body-data'>N 8 mph</p>
-  </div>
-  <div class="card-body-prop">
-    <p class='card-body-stats'>Humidity</p>
-    <p class='card-body-data'>52%</p>
-  </div>
-  <div class="card-body-prop">
-    <p class='card-body-stats'>Pressure</p>
-    <p class='card-body-data'>30.33 in</p>
-  </div>
-</div>
-</div> */}
