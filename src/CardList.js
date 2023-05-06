@@ -1,7 +1,6 @@
 import { Card } from './Card';
 
-
-
+export const CardList = () => {
 
   const $ = (selector) => document.createElement(selector);
   const $$ = (root, child) => root.append(child);
@@ -17,10 +16,14 @@ import { Card } from './Card';
   const $input = $('input');
 
   const $btn = $('button');
-  $btn.textContent = 'Añadir ciudad'
+  $btn.textContent = 'Añadir ciudad';
+
+  const $btnReset = $('button');
+  $btnReset.textContent = 'Borrar ciudades';
 
   $$($header, $input);
   $$($header, $btn);
+  $$($header, $btnReset);
 
   $btn.addEventListener('click', () => {
     const city = $input.value;
@@ -28,11 +31,27 @@ import { Card } from './Card';
       if (!city) return;
 
       $$($main, city);
-      $input.value = ''
-    })
-  })
+      $input.value = '';
+      $input.focus();
+    });
+  });
+  $input.addEventListener('keydown', (e) => {
+    if (e.keyCode !== 13) return;
 
-export const CardList = async () => {
+    const city = $input.value;
+    Card(city).then(city => {
+      if (!city) return;
 
+      $$($main, city);
+      $input.value = '';
+      $input.focus();
+    });
+  });
+
+  $btnReset.addEventListener('click', () => {
+    $main.textContent = '';
+    $input.value = '';
+    $input.focus();
+  });
 
 };
