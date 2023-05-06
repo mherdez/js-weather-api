@@ -5,8 +5,10 @@ const colorThief = new ColorThief();
 
 const createCard = (data) => {
 
+  console.log(data)
+
   const { location, current } = data;
-  const { name, country } = location;
+  const { name, region, country } = location;
   const { temp_c, condition, wind_kph, wind_dir, pressure_in, humidity } = current;
   const { icon, text } = condition;
 
@@ -50,7 +52,8 @@ const createCard = (data) => {
   $span.textContent = 'º';
 
   const $h3 = $('h3');
-  $h3.textContent = `${name}, ${country}`;
+  $h3.textContent = `${name}, ${region}, ${country}`;
+
 
   // card-body
   const $cardBody = $('div');
@@ -64,7 +67,7 @@ const createCard = (data) => {
   $pCardBodyPropStatsWind.classList.add('card-body-stats');
 
   const $pCardBodyPropDataWind = $('p');
-  $pCardBodyPropDataWind.textContent = `N 8 mph`;
+  $pCardBodyPropDataWind.textContent = `${wind_dir} ${wind_kph} kph`;
   $pCardBodyPropDataWind.classList.add('card-body-data');
 
   const $cardBodyPropHumidity = $('div');
@@ -75,7 +78,7 @@ const createCard = (data) => {
   $pCardBodyPropStatsHumidity.classList.add('card-body-stats');
 
   const $pCardBodyPropDataHumidity = $('p');
-  $pCardBodyPropDataHumidity.textContent = `52%`;
+  $pCardBodyPropDataHumidity.textContent = `${humidity}%`;
   $pCardBodyPropDataHumidity.classList.add('card-body-data');
 
   const $cardBodyPropPressure = $('div');
@@ -86,7 +89,7 @@ const createCard = (data) => {
   $pCardBodyPropStatsPressure.classList.add('card-body-stats');
 
   const $pCardBodyPropDataPressure = $('p');
-  $pCardBodyPropDataPressure.textContent = `30.33 in`;
+  $pCardBodyPropDataPressure.textContent = `${pressure_in} in`;
   $pCardBodyPropDataPressure.classList.add('card-body-data');
 
   // color text card-info
@@ -137,7 +140,6 @@ const weatherApi = async (city) => {
     const data = await createCard(result)
     return data;
   } catch (error) {
-    console.log(error)
     return error.mensaje;
   }
 }

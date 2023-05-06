@@ -27,18 +27,40 @@ body {
 
 
 #app {
-  max-width: 1280px;
+  width: 90vw;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+header {
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+header input {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+header button {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main{
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 50px;
 }
 
 .card {
   box-sizing: border-box;
-  width: 320px;
   background-color: rgb(250, 250, 250);
   border-radius: 15px;
   overflow: hidden;
@@ -60,7 +82,7 @@ body {
 }
 .card-info {
   text-align: right;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .card-body {
   display: flex;
@@ -87,7 +109,6 @@ h1 {
   position: relative;
   font-weight: lighter;
   margin: 5px 0;
-
 }
 h1 span {
   position: absolute;
@@ -99,9 +120,13 @@ h3, h2 {
 }
 h2 {
   font-size: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 h3 {
-  font-size: 16px;
+  overflow: hidden;
+  font-size: 17px;
+  text-overflow: ellipsis;
 }
 .card-body-stats {
   font-size: 21px;
