@@ -32,12 +32,13 @@ body {
 }
 
 header {
-  padding: 20px;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 10px;
+  border: 2px solid yellow;
 }
 
 header input {
